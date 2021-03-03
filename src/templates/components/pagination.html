@@ -2,18 +2,22 @@
   class="bg-white px-5 py-6 flex items-center justify-between border-t border-gray-200 sm:px-6"
 >
   <div class="flex-1 flex justify-between sm:hidden">
-    <a
-      href="#"
-      class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-    >
-      Previous
-    </a>
-    <a
-      href="#"
-      class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-    >
-      Next
-    </a>
+    {% if page_obj.has_previous %}
+      <a
+        href="#"
+        class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
+      >
+        Previous
+      </a>
+    {% endif %}
+    {% if page_obj.has_next %}
+      <a
+        href="#"
+        class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
+      >
+        Next
+      </a>
+    {% endif %}
   </div>
   <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
     <div>

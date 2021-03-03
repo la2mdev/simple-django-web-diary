@@ -3,40 +3,40 @@
 {% block content %}
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-10 mx-auto">
-    <div class="-my-8 divide-y-2 divide-gray-100">
-      <div class="py-8 flex flex-wrap md:flex-nowrap">
-        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-          <span class="font-semibold title-font text-gray-700">fecha entrada</span>
-          <span class="mt-1 text-gray-500 text-sm">hora entrada</span>
-        </div>
-        <div class="md:flex-grow">
-          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
-            titulo entrada
-          </h2>
-          <p class="leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus 
-            illo minima culpa porro commodi modi amet quisquam. Dicta, soluta 
-            eius autem voluptatem assumenda tempore corporis rerum est aspernatur 
-            velit eum.
-          </p>
-          <a class="text-indigo-500 inline-flex items-center mt-4"
-            >ver mas
-            <svg
-              class="w-4 h-4 ml-2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14"></path>
-              <path d="M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
+
+    {% for entry in page_obj %}
+      <div class="-my-8 divide-y-2 divide-gray-100">
+        <div class="py-8 flex flex-wrap md:flex-nowrap">
+          <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+            <span class="font-semibold title-font text-gray-700">{{ entry.date_posted|date:"j \d\e F \d\e Y" }}</span>
+            <span class="mt-1 text-gray-500 text-sm">{{ entry.date_posted|time:"H:i" }}</span>
+          </div>
+          <div class="md:flex-grow">
+            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
+              {{ entry.title }}
+            </h2>
+            <p class="leading-relaxed">
+              {{ entry.content }}
+            </p>
+            <a class="text-indigo-500 inline-flex items-center mt-4"
+              >editar
+              <svg
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    {% endfor %}
   </div>
 </section>
 {% endblock content %}

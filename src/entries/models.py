@@ -6,5 +6,8 @@ class Entry(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ('-date_posted',)
+
     def __str__(self):
         return f'{self.title}[:20] ...'

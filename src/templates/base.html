@@ -8,12 +8,16 @@
     <title>web diary</title>
   </head>
   <body>
+    {% url 'entries:index' as index %}
     {% include 'components/navbar.html' %}
     <main>
       <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         {% block content %} {% endblock content %}
       </div>
     </main>
-    {% include 'components/pagination.html' %}
+
+    {% if request.path == index %}
+      {% include 'components/pagination.html' %}
+    {% endif %}
   </body>
 </html>
